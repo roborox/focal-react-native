@@ -1,0 +1,65 @@
+{
+  "name": "@roborox/focal-react-native",
+  "version": "0.1.0",
+  "main": "build/lib/index.js",
+  "types": "build/lib/index.d.ts",
+  "files": [
+    "build",
+    "typings.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "npm run lint && npm run build-lib",
+    "build-lib": "rimraf ./build && tsc && npm run copy-assets",
+    "copy-json-to-lib": "cpx \"./src/**/*.json\" ./build",
+    "copy-assets": "npm run copy-json-to-lib",
+    "test": "jest",
+    "lint": "eslint --ext .js,.ts,.ts,.tsx ./",
+    "lint:fix": "eslint --ext .js,.ts,.ts,.tsx ./ --fix",
+    "ci": "sh ./scripts/ci.sh",
+    "release": "sh ./scripts/release.sh"
+  },
+  "devDependencies": {
+    "@grammarly/focal": "0.8.1",
+    "@roborox/eslint-config-default": "2.1.3",
+    "@roborox/focal-react": "1.0.1",
+    "@semantic-release/changelog": "5.0.0",
+    "@semantic-release/commit-analyzer": "8.0.1",
+    "@semantic-release/git": "9.0.0",
+    "@semantic-release/npm": "7.0.2",
+    "@semantic-release/release-notes-generator": "9.0.0",
+    "@testing-library/jest-native": "^3.1.0",
+    "@testing-library/react-native": "^5.0.3",
+    "@types/jest": "^25.1.4",
+    "@types/react": "16.9.23",
+    "@types/react-dom": "16.9.5",
+    "@types/react-native": "^0.61.21",
+    "@types/react-test-renderer": "^16.9.2",
+    "babel-eslint": "10.1.0",
+    "cpx": "1.5.0",
+    "eslint": "6.8.0",
+    "husky": "4.2.2",
+    "immutable": "4.0.0-rc.12",
+    "jest": "^25.1.0",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "react-native": "^0.61.5",
+    "react-test-renderer": "^16.12.0",
+    "rimraf": "3.0.2",
+    "rxjs": "^6.5.4",
+    "semantic-release": "17.0.2",
+    "ts-jest": "^25.2.1",
+    "ts-loader": "6.2.1",
+    "typescript": "3.8.3"
+  },
+  "peerDependencies": {
+    "rxjs": ">= 6.5.0",
+    "react": ">= 16.9.0",
+    "react-native": ">= 0.61.0",
+    "@grammarly/focal": "0.8.1",
+    "@roborox/focal-react": "1.0.1"
+  },
+  "dependencies": {}
+}
