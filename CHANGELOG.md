@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/roborox/focal-react-native/compare/v1.0.1...v1.1.0) (2020-03-19)
+
+
+### Features
+
+* add useScrollEvent & update focal-react to 1.1.0 ([5481f51](https://github.com/roborox/focal-react-native/commit/5481f51a9b2e300dc066c1bb3b235e17f7a4b8f6))
+
 ## [1.0.1](https://github.com/roborox/focal-react-native/compare/v1.0.0...v1.0.1) (2020-03-18)
 
 
