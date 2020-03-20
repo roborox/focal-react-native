@@ -13,4 +13,5 @@ export function RxText<T extends string | number>({ value, ...rest }: RxTextProp
 	if (raw) {
 		return <Text {...rest}>{raw}</Text>
 	}
+	return null
 }

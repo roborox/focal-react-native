@@ -9,6 +9,7 @@ export interface RxTextInputProps extends Omit<TextInputProps, "value" | "onChan
 
 export function RxTextInput({value, ...restProps}: RxTextInputProps) {
 	const text = useRx(value)
+
 	return (
 		<TextInput
 			{...restProps}
