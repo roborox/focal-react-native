@@ -16,7 +16,7 @@ export function useSmoothAnimation(
 			}).start()
 		})
 		return () => s.unsubscribe()
-	}, [animated])
+	}, [animated, value])
 
 	return animated
 }
