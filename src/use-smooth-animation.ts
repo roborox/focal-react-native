@@ -1,13 +1,14 @@
 import { Animated } from "react-native"
 import { Observable } from "rxjs"
 import { useEffect, useMemo } from "react"
+import { getInitialState } from "@roborox/focal-react"
 
 export function useSmoothAnimation(
 	value: Observable<number>,
 	config: Omit<Animated.TimingAnimationConfig, "toValue">,
 	initialValue = 0,
 ): Animated.Value {
-	const animated = useMemo(() => new Animated.Value(initialValue), [])
+	const animated = useMemo(() => new Animated.Value(getInitialState(value, initialValue) || initialValue), [])
 	useEffect(() => {
 		const s = value.subscribe(next => {
 			Animated.timing(animated, {
