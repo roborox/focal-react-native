@@ -3,7 +3,7 @@ import { ImageProps, Image } from "react-native"
 import { Observable } from "rxjs"
 import { useRx } from "@roborox/focal-react/build/src/use-rx"
 
-export interface RxUriImageProps extends ImageProps {
+export interface RxUriImageProps extends Omit<ImageProps, "source"> {
 	uri: Observable<string | number | undefined | null | void>,
 }
 
@@ -11,7 +11,7 @@ export function RxUriImage({ uri, ...restProps }: RxUriImageProps): React.ReactE
 	const raw = useRx(uri)
 
 	if (raw) {
-		return <Image source={{ uri }} {...restProps} />
+		return <Image source={{ uri: raw.toString() }} {...restProps} />
 	}
 	return null
 }
