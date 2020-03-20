@@ -7,7 +7,7 @@ export interface RxTextInputProps extends Omit<TextInputProps, "value" | "onChan
 	value: Atom<string | void | null | undefined>
 }
 
-export function RxTextInput({value, ...restProps}: RxTextInputProps) {
+export function RxTextInput({value, ...restProps}: RxTextInputProps): React.ReactElement | null {
 	const text = useRx(value)
 
 	return (

@@ -7,7 +7,7 @@ export interface RxTextProps<T> extends TextProps {
 	value: Observable<T | void | null | undefined>
 }
 
-export function RxText<T extends string | number>({ value, ...rest }: RxTextProps<T>) {
+export function RxText<T extends string | number>({ value, ...rest }: RxTextProps<T>): React.ReactElement | null {
 	const raw = useRx(value)
 
 	if (raw) {
