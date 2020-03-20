@@ -4,7 +4,7 @@ import { Observable } from "rxjs"
 import { useRx } from "@roborox/focal-react/build/src/use-rx"
 
 export interface RxAnimatedUriImageProps extends React.ComponentProps<Animated.AnimatedComponent<Image>> {
-	uri: Observable<string | number | undefined | null>,
+	uri: Observable<string | number | undefined | null | void>,
 }
 
 export function RxAnimatedUriImage({ uri, ...restProps }: RxAnimatedUriImageProps) {

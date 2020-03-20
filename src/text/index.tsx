@@ -4,7 +4,7 @@ import { Text, TextProps } from "react-native"
 import { useRx } from "@roborox/focal-react/build/src/use-rx"
 
 export interface RxTextProps<T> extends TextProps {
-	value: Observable<T | void | null>
+	value: Observable<T | void | null | undefined>
 }
 
 export function RxText<T extends string | number>({ value, ...rest }: RxTextProps<T>) {
