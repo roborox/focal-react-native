@@ -21,7 +21,12 @@ export interface RxFlatListProps<T> extends Omit<FlatListProps<T>, "data" | "ren
 	refreshing?: Observable<boolean>
 }
 
-export function RxFlatList<T>({ data, renderItem: render, refreshing = of(false), ...rest }: RxFlatListProps<T>) {
+export function RxFlatList<T>({
+	data,
+	renderItem: render,
+	refreshing = of(false),
+	...rest
+}: RxFlatListProps<T>): React.ReactElement | null {
 	const list = useRx(ifDefined(data))
 	const isRefreshing = useRx(refreshing, false)
 

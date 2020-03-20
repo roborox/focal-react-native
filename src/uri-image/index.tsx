@@ -7,7 +7,7 @@ export interface RxUriImageProps extends ImageProps {
 	uri: Observable<string | number | undefined | null | void>,
 }
 
-export function RxUriImage({ uri, ...restProps }: RxUriImageProps) {
+export function RxUriImage({ uri, ...restProps }: RxUriImageProps): React.ReactElement | null {
 	const raw = useRx(uri)
 
 	if (raw) {

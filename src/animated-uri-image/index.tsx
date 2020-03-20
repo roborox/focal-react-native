@@ -7,7 +7,7 @@ export interface RxAnimatedUriImageProps extends React.ComponentProps<Animated.A
 	uri: Observable<string | number | undefined | null | void>,
 }
 
-export function RxAnimatedUriImage({ uri, ...restProps }: RxAnimatedUriImageProps) {
+export function RxAnimatedUriImage({ uri, ...restProps }: RxAnimatedUriImageProps): React.ReactElement | null {
 	const raw = useRx(uri)
 
 	if (raw) {
