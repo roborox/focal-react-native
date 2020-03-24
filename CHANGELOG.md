@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/roborox/focal-react-native/compare/v1.2.0...v1.3.0) (2020-03-24)
+
+
+### Features
+
+* update useInfiniteListScrollEvent to observers way, update focal-react ([c7ba2e5](https://github.com/roborox/focal-react-native/commit/c7ba2e5b6fca4b5f070538a5f9419e23ef4b6885))
+
 # [1.2.0](https://github.com/roborox/focal-react-native/compare/v1.1.0...v1.2.0) (2020-03-20)
 
 
