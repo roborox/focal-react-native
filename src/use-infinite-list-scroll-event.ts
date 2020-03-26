@@ -1,7 +1,7 @@
 import { NativeSyntheticEvent, NativeScrollEvent } from "react-native"
-import { Subject, combineLatest, Observable, ReplaySubject } from "rxjs"
 import { InfiniteListState } from "@roborox/focal-react/build/src/infinite-list/domain"
-import { useSubscription } from "@roborox/focal-react/build/src/use-subscription"
+import { Atom } from "@grammarly/focal"
+import { useCallback } from "react"
 
 export const isScrollCloseToBottom = (offset: number, ev: NativeSyntheticEvent<NativeScrollEvent>) => {
 	return ev.nativeEvent.layoutMeasurement.height + ev.nativeEvent.contentOffset.y >=
@@ -9,16 +9,13 @@ export const isScrollCloseToBottom = (offset: number, ev: NativeSyntheticEvent<N
 }
 
 export const useInfiniteListScrollEvent = (
-	stateObeservable: Observable<InfiniteListState<any, any>>,
-	loadNextObservable: ReplaySubject<() => Promise<void>>,
-	eventsObservable: Subject<NativeSyntheticEvent<NativeScrollEvent>>,
+	state: Atom<InfiniteListState<any, any>>,
+	loadNext: () => Promise<void>,
 	offset: number,
-) => {
-	useSubscription(combineLatest(
-		stateObeservable, loadNextObservable, eventsObservable,
-	), ([{ status, finished }, loadNext, event]) => {
-		if (status.status === "success" && !finished && isScrollCloseToBottom(offset, event)) {
-			loadNext()
-		}
-	})
-}
+) => useCallback((ev: NativeSyntheticEvent<NativeScrollEvent>) => {
+	const { finished, status: { status } } = state.get()
+
+	if (status === "success" && !finished && isScrollCloseToBottom(offset, ev)) {
+		loadNext().then()
+	}
+}, [offset, loadNext, state])
