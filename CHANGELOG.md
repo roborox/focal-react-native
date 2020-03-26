@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/roborox/focal-react-native/compare/v1.3.0...v1.3.1) (2020-03-26)
+
+
+### Bug Fixes
+
+* fix useInfiniteListScrollEvent ([38a93fb](https://github.com/roborox/focal-react-native/commit/38a93fbdf1d9d1713bfa39cca0f40fe4979d5a00))
+
 # [1.3.0](https://github.com/roborox/focal-react-native/compare/v1.2.0...v1.3.0) (2020-03-24)
 
 
