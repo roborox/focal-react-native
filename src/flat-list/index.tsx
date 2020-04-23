@@ -1,7 +1,6 @@
 import React, { useCallback } from "react"
 import { FlatList, FlatListProps, ListRenderItemInfo } from "react-native"
 import { Observable, of } from "rxjs"
-import { filter } from "rxjs/operators"
 import { useRx } from "@roborox/focal-react/build/src/use-rx"
 
 export interface RxListRenderItemInfo<T> extends ListRenderItemInfo<T> {
@@ -11,10 +10,6 @@ export interface RxListRenderItemInfo<T> extends ListRenderItemInfo<T> {
 
 export type RxListRenderItem<T> = (info: RxListRenderItemInfo<T>) => React.ReactElement | null
 
-function ifDefined<T>(observable: Observable<T | undefined>): Observable<T> {
-	return observable.pipe(filter((x) => x !== undefined)) as Observable<T>
-}
-
 export interface RxFlatListProps<T> extends Omit<FlatListProps<T>, "data" | "renderItem" | "refreshControl" | "refreshing"> {
 	data: Observable<T[] | undefined | null>
 	renderItem: RxListRenderItem<T>
@@ -22,23 +17,19 @@ export interface RxFlatListProps<T> extends Omit<FlatListProps<T>, "data" | "ren
 }
 
 export function RxFlatList<T>({
-	data,
-	renderItem: render,
-	refreshing = of(false),
-	...rest
+	data, renderItem: render, refreshing = of(false), ...rest
 }: RxFlatListProps<T>): React.ReactElement | null {
-	const list = useRx(ifDefined(data))
+	const list = useRx(data)
 	const isRefreshing = useRx(refreshing, false)
 
-	const renderItem = useCallback((item: ListRenderItemInfo<T>) => render({
-		...item,
-		first: item.index === 0,
-		last: item.index + 1 === list?.length,
+	const renderItem = useCallback((x: ListRenderItemInfo<T>) => render({
+		...x,
+		first: x.index === 0,
+		last: x.index + 1 === list?.length,
 	}), [list])
 
 	if (list) {
 		return <FlatList data={list} renderItem={renderItem} refreshing={isRefreshing} {...rest} />
 	}
-
 	return null
 }
