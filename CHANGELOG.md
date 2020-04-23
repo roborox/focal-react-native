@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/roborox/focal-react-native/compare/v1.3.1...v1.3.2) (2020-04-23)
+
+
+### Bug Fixes
+
+* fix rx flat-list ([852c73c](https://github.com/roborox/focal-react-native/commit/852c73c53bb4f755e9c01a3394c83fc32e38c5bb))
+
 ## [1.3.1](https://github.com/roborox/focal-react-native/compare/v1.3.0...v1.3.1) (2020-03-26)
 
 
