@@ -26,7 +26,7 @@ export function RxFlatList<T>({
 		...x,
 		first: x.index === 0,
 		last: x.index + 1 === list?.length,
-	}), [list])
+	}), [list, render])
 
 	if (list) {
 		return <FlatList data={list} renderItem={renderItem} refreshing={isRefreshing} {...rest} />
