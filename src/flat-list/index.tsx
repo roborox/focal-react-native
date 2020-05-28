@@ -20,7 +20,7 @@ export function RxFlatList<T>({
 	data, renderItem: render, refreshing = of(false), ...rest
 }: RxFlatListProps<T>): React.ReactElement | null {
 	const list = useRx(data)
-	const isRefreshing = useRx(refreshing, false)
+	const isRefreshing = useRx(refreshing)
 
 	const renderItem = useCallback((x: ListRenderItemInfo<T>) => render({
 		...x,
