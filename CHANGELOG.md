@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/roborox/focal-react-native/compare/v1.3.2...v2.0.0) (2020-05-28)
+
+
+### Bug Fixes
+
+* applied new eslint config, fixed warning ([d665f77](https://github.com/roborox/focal-react-native/commit/d665f7707454bcf012ddb67a0422a050582312bd))
+* upgrade @roborox/focal-react ([c125550](https://github.com/roborox/focal-react-native/commit/c1255508bea7c969ce4015e7753de8f60cac063d))
+
+
+### BREAKING CHANGES
+
+* upgrade @roborox/focal-react
+
 ## [1.3.2](https://github.com/roborox/focal-react-native/compare/v1.3.1...v1.3.2) (2020-04-23)
 
 
